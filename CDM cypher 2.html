@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zodiac Puzzle Solver</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #222;
+      color: #eee;
+    }
+    .container {
+      margin: 50px auto;
+      width: 50%;
+      padding: 20px;
+      border: 2px solid #444;
+      border-radius: 10px;
+      background-color: #333;
+    }
+    .zodiac-select {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .zodiac-option {
+      margin: 10px;
+      padding: 10px;
+      background-color: #444;
+      border: 1px solid #555;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .zodiac-option:hover {
+      background-color: #555;
+    }
+    .output {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #444;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Zodiac Puzzle Solver</h1>
+    <p>Select a Symbol to See Its Corresponding Element and Astrology Symbols:</p>
+    <div class="zodiac-select" id="zodiacSelect">
+      <div class="zodiac-option" onclick="solvePuzzle('Scorpion')">Scorpion ♏︎</div>
+      <div class="zodiac-option" onclick="solvePuzzle('Ram Horn')">Ram Horn ♈︎</div>
+      <div class="zodiac-option" onclick="solvePuzzle('Double Raven Skulls')">Double Raven Skulls ♊︎</div>
+      <div class="zodiac-option" onclick="solvePuzzle('Jaw Bone With Teeth')">Jaw Bone With Teeth ♌︎</div>
+      <div class="zodiac-option" onclick="solvePuzzle('Fish')">Fish ♓︎</div>
+    </div>
+    <div class="output" id="output"></div>
+  </div>
+
+  <script>
+    // Define the symbols, elements, and their full astrology symbol mappings
+    const symbolElements = {
+      'Scorpion': { symbol: '♏︎', element: 'Water ▽', astrology: ['Scorpio ♏︎', 'Cancer ♋︎', 'Pisces ♓︎'] },
+      'Ram Horn': { symbol: '♈︎', element: 'Fire △', astrology: ['Aries ♈︎', 'Leo ♌︎', 'Sagittarius ♐︎'] },
+      'Double Raven Skulls': { symbol: '♊︎', element: 'Air △', astrology: ['Gemini ♊︎', 'Libra ♎︎', 'Aquarius ♒︎'] },
+      'Jaw Bone With Teeth': { symbol: '♌︎', element: 'Fire △', astrology: ['Aries ♈︎', 'Leo ♌︎', 'Sagittarius ♐︎'] },
+      'Fish': { symbol: '♓︎', element: 'Water ▽', astrology: ['Scorpio ♏︎', 'Cancer ♋︎', 'Pisces ♓︎'] }
+    };
+
+    // Function to solve the puzzle
+    function solvePuzzle(symbol) {
+      const symbolData = symbolElements[symbol];
+      document.getElementById('output').innerHTML = `
+        <h2>${symbol}</h2>
+        <p>Symbol: ${symbolData.symbol}</p>
+        <p>Element: ${symbolData.element}</p>
+        <p>Astrology Symbols: ${symbolData.astrology.join(', ')}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
